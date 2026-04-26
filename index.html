@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>智成时空 - 时空智能产品与技术服务商</title>
+  <meta name="description" content="智成时空(西安)创新科技有限公司，时空智能技术·创新用户价值。">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230052D9'/><text x='50%25' y='55%25' text-anchor='middle' dominant-baseline='middle' fill='white' font-size='18' font-weight='bold'>S</text></svg>">
+  <style>
+    /* ---- HERO WITH CSS 3D EARTH ---- */
+    .hero-section {
+      position: relative; overflow: hidden;
+      background: linear-gradient(160deg, #020818 0%, #0a1628 40%, #0d0f2b 70%, #050a1a 100%);
+      padding: calc(var(--header-height) + 80px) 0 100px;
+      min-height: 620px; display: flex; align-items: center;
+    }
+    .hero-section .container { position: relative; z-index: 2; text-align: center; width: 100%; }
+
+    /* Earth - uploaded image, right side */
+    .earth-wrap {
+      position: absolute; z-index: 1;
+      top: 58%; right: 5%;
+      transform: translateY(-50%);
+      pointer-events: none;
+      width: 400px; height: 400px;
+    }
+    .earth-img {
+      width: 100%; height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      filter: brightness(1.05) saturate(1.1);
+      box-shadow:
+        0 0 80px 30px rgba(0,100,255,0.12),
+        0 0 150px 60px rgba(0,80,200,0.06);
+    }
+    /* Atmosphere glow */
+    .earth-glow {
+      position: absolute; top: -20px; left: -20px;
+      width: calc(100% + 40px); height: calc(100% + 40px);
+      border-radius: 50%;
+      background: radial-gradient(circle, transparent 40%, rgba(80,180,255,0.1) 55%, rgba(60,150,255,0.04) 70%, transparent 80%);
+      animation: earthPulse 4s ease-in-out infinite;
+    }
+    /* Orbit ring */
+    .earth-orbit {
+      position: absolute; top: 50%; left: 50%;
+      width: 560px; height: 150px;
+      transform: translate(-50%, -50%) rotateX(70deg) rotateZ(-15deg);
+      border: 1px solid rgba(0,150,255,0.15);
+      border-radius: 50%;
+    }
+    .earth-orbit::after {
+      content: ''; position: absolute;
+      width: 6px; height: 6px; border-radius: 50%;
+      background: #00d4ff; box-shadow: 0 0 10px 3px rgba(0,212,255,0.4);
+      top: 0; left: 50%; transform: translateX(-50%);
+      animation: orbitDot 10s linear infinite;
+    }
+    @keyframes earthPulse { 0%,100% { opacity: 1; } 50% { opacity: 0.5; } }
+    @keyframes orbitDot { from { transform: translateX(-50%) rotate(0deg) translateX(280px) rotate(0deg); } to { transform: translateX(-50%) rotate(360deg) translateX(280px) rotate(-360deg); } }
+
+    /* Hero text */
+    .hero-title-main {
+      font-size: clamp(36px, 5vw, 52px); font-weight: 700; margin-bottom: 20px;
+      letter-spacing: 4px; line-height: 1.3; color: #fff;
+    }
+    .hero-sub { font-size: 16px; color: rgba(180,210,255,0.55); margin-top: 16px; letter-spacing: 2px; font-weight: 300; }
+
+    /* ---- PRODUCT TABLE (3 columns) ---- */
+    .product-table-wrap { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 32px; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow); }
+    .product-col-header { padding: 20px 24px; text-align: center; font-size: 17px; font-weight: 700; color: #fff; }
+    .product-col-header.col-1 { background: linear-gradient(135deg, #00b4d8, #0077b6); }
+    .product-col-header.col-2 { background: linear-gradient(135deg, #0077b6, #0052D9); }
+    .product-col-header.col-3 { background: linear-gradient(135deg, #7b2ff7, #0052D9); }
+    .product-col-body { background: #fff; padding: 20px 24px; border: 1px solid var(--border); border-top: none; min-height: 200px; }
+    .product-col-body ul { list-style: none; }
+    .product-col-body li { padding: 10px 0; font-size: 14px; color: var(--text); border-bottom: 1px solid #f0f0f0; cursor: pointer; transition: var(--transition); }
+    .product-col-body li:last-child { border-bottom: none; }
+    .product-col-body li:hover { color: var(--primary); padding-left: 8px; }
+    .product-col-body li a { color: inherit; text-decoration: none; display: block; }
+
+    /* ---- SOLUTION GRID BUTTONS ---- */
+    .solution-btn-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; margin-top: 32px; }
+    .solution-btn { display: flex; align-items: center; justify-content: center; padding: 18px 16px; background: #fff; border: 1px solid var(--border); border-radius: var(--radius); font-size: 14px; font-weight: 500; color: var(--dark); text-decoration: none; transition: var(--transition); text-align: center; }
+    .solution-btn:hover { border-color: var(--primary); color: var(--primary); box-shadow: var(--shadow); transform: translateY(-2px); }
+
+    /* ---- PARTNER TABLE ---- */
+    .partner-table { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-top: 32px; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow); }
+    .partner-header { padding: 16px 24px; font-size: 16px; font-weight: 700; color: #fff; text-align: center; }
+    .partner-header.gov { background: linear-gradient(135deg, #0052D9, #0078FF); }
+    .partner-header.corp { background: linear-gradient(135deg, #555, #888); }
+    .partner-body { background: #fff; padding: 20px 24px; border: 1px solid var(--border); border-top: none; }
+    .partner-body li { padding: 8px 0; font-size: 13px; color: var(--text-secondary); border-bottom: 1px solid #f5f5f5; }
+    .partner-body li:last-child { border-bottom: none; }
+
+    @media (max-width: 992px) {
+      .earth-wrap { right: -10%; opacity: 0.4; }
+      .earth-img { width: 320px; height: 320px; }
+    }
+    @media (max-width: 768px) {
+      .earth-wrap { display: none; }
+      .product-table-wrap { grid-template-columns: 1fr; }
+      .partner-table { grid-template-columns: 1fr; }
+      .solution-btn-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Header - 白色背景 -->
+<header class="header">
+  <div class="container">
+    <a href="index.html" class="logo"><div class="logo-icon">S</div>智成<span>时空</span></a>
+    <nav class="nav">
+      <a href="index.html" class="active">首页</a>
+      <a href="products.html">产品中心</a>
+      <a href="solutions.html">解决方案</a>
+      <a href="team.html">人才团队</a>
+      <a href="partners.html">市场合作</a>
+      <a href="service.html">服务中心</a>
+      <a href="about.html">关于智成</a>
+    </nav>
+    <button class="mobile-toggle" aria-label="菜单"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- Hero with Earth Image -->
+<section class="hero-section">
+  <div class="earth-wrap">
+    <img class="earth-img" src="assets/img/earth.png" alt="Earth">
+    <div class="earth-glow"></div>
+    <div class="earth-orbit"></div>
+  </div>
+  <div class="container">
+    <h1 class="hero-title-main">时空智能技术 · 创新用户价值</h1>
+    <p class="hero-sub">做用户最值得信赖的时空智能产品与技术服务商</p>
+  </div>
+</section>
+
+<!-- 产品中心 -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2>产品中心</h2>
+      <p>时空智能基础产品 + 时空数据智能中台 + 定制派生平台级产品</p>
+      <div class="line"></div>
+    </div>
+    <div class="product-table-wrap">
+      <div>
+        <div class="product-col-header col-1">时空数据产品</div>
+        <div class="product-col-body">
+          <ul>
+            <li><a href="products.html">时空数据智能处理软件</a></li>
+            <li><a href="products.html">时空数据服务发布管理软件</a></li>
+            <li><a href="products.html">时空智能三维网络端软件</a></li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div class="product-col-header col-2">时空数据服务中台</div>
+        <div class="product-col-body">
+          <ul>
+            <li><a href="products.html">时空数据汇集系统</a></li>
+            <li><a href="products.html">时空数据治理系统</a></li>
+            <li><a href="products.html">时空数据管理系统</a></li>
+            <li><a href="products.html">时空数据应用系统</a></li>
+            <li><a href="products.html">安全管理系统</a></li>
+            <li><a href="products.html">权限管理系统</a></li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div class="product-col-header col-3">时空智能平台级产品</div>
+        <div class="product-col-body">
+          <ul>
+            <li><a href="products.html">湖仓一体化数据管理平台</a></li>
+            <li><a href="products.html">智慧城市时空云平台</a></li>
+            <li><a href="products.html">时空数字孪生基础平台</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 解决方案 -->
+<section class="section section-dark">
+  <div class="container">
+    <div class="section-header">
+      <h2>解决方案</h2>
+      <p>以全量源代码自主可控技术体系为驱动，为用户提供时空智能领域专业性解决方案</p>
+      <div class="line"></div>
+    </div>
+    <h3 style="font-size:18px;font-weight:600;color:var(--dark);margin:32px 0 8px;text-align:center;">测绘地理信息领域</h3>
+    <div class="solution-btn-grid">
+      <a href="solutions.html" class="solution-btn">实景三维一张图系统</a>
+      <a href="solutions.html" class="solution-btn">实景三维数据建库管理系统</a>
+      <a href="solutions.html" class="solution-btn">一张图数据库群</a>
+      <a href="solutions.html" class="solution-btn">一张图"遥感影像统筹共享系统</a>
+      <a href="solutions.html" class="solution-btn">自然资源三维立体时空数据库</a>
+    </div>
+    <h3 style="font-size:18px;font-weight:600;color:var(--dark);margin:40px 0 8px;text-align:center;">行业数字化转型</h3>
+    <div class="solution-btn-grid">
+      <a href="solutions.html" class="solution-btn">透明地质保障</a>
+      <a href="solutions.html" class="solution-btn">孪生水利</a>
+      <a href="solutions.html" class="solution-btn">数字交通</a>
+      <a href="solutions.html" class="solution-btn">市域综治</a>
+      <a href="solutions.html" class="solution-btn">智慧能源</a>
+      <a href="solutions.html" class="solution-btn">智慧农业</a>
+    </div>
+  </div>
+</section>
+
+<!-- 合作伙伴 -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2>合作伙伴与服务用户</h2>
+      <p>服务客户遍及部委及多个省份，助力十余个行业领域数字化转型</p>
+      <div class="line"></div>
+    </div>
+    <div class="partner-table">
+      <div>
+        <div class="partner-header gov">政府单位</div>
+        <div class="partner-body">
+          <ul>
+            <li>自然资源部国家基础地理信息中心</li>
+            <li>自然资源部第一地形测量队</li>
+            <li>陕西省测绘地理信息院</li>
+            <li>山西省测绘地理信息院</li>
+            <li>江苏省测绘工程院</li>
+            <li>青海省自然资源厅</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div class="partner-header corp">央国企单位</div>
+        <div class="partner-body">
+          <ul>
+            <li>中国科学院空天信息创新研究院</li>
+            <li>中国电子科技集团有限公司</li>
+            <li>中国航天科工集团</li>
+            <li>超图软件股份有限公司</li>
+            <li>北京超图信息有限公司</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>智成时空</h4>
+        <p>做用户最值得信赖的时空智能产品与技术服务商。<br>时空智能技术 · 创新用户价值</p>
+        <p style="margin-top:16px;font-size:13px;color:rgba(255,255,255,0.4)">http://www.scenemap.com.cn</p>
+      </div>
+      <div>
+        <h4>产品中心</h4>
+        <ul>
+          <li><a href="products.html">时空数据智能处理软件</a></li>
+          <li><a href="products.html">时空数据服务发布管理软件</a></li>
+          <li><a href="products.html">时空智能三维网络端软件</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>解决方案</h4>
+        <ul>
+          <li><a href="solutions.html">自然资源</a></li>
+          <li><a href="solutions.html">数字孪生水利</a></li>
+          <li><a href="solutions.html">智慧城市</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>关于我们</h4>
+        <ul>
+          <li><a href="about.html">公司简介</a></li>
+          <li><a href="about.html">荣誉资质</a></li>
+          <li><a href="team.html">人才团队</a></li>
+          <li><a href="about.html">发展历程</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 智成时空(西安)创新科技有限公司. All rights reserved.</span>
+      <span>SceneMap · SceneMap xDesktop · SceneMap xServer · SceneMap xClient</span>
+    </div>
+  </div>
+</footer>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
