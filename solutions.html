@@ -4,9 +4,211 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>解决方案 - 智成时空</title>
-  <meta name="description" content="智成时空行业解决方案：赋能自然资源、水利、交通、智慧城市等十余个行业数字化转型。">
+  <meta name="description" content="智成时空时空智能领域解决方案：以全量源代码自主可控技术体系为驱动，为用户提供时空智能领域专业性解决方案。">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230052D9'/><text x='50%25' y='55%25' text-anchor='middle' dominant-baseline='middle' fill='white' font-size='18' font-weight='bold'>S</text></svg>">
+  <style>
+    /* Solutions page specific styles */
+    .solutions-banner {
+      position: relative;
+      padding: calc(var(--header-height) + 80px) 0 80px;
+      background: linear-gradient(135deg, #0F1923 0%, #1A2A3A 50%, #0D2137 100%);
+      color: #fff;
+      text-align: left;
+      overflow: hidden;
+    }
+    .solutions-banner::before {
+      content: '';
+      position: absolute;
+      top: -30%;
+      right: -10%;
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(61,123,242,0.12) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .solutions-banner .container {
+      position: relative;
+      z-index: 1;
+    }
+    .solutions-banner h1 {
+      font-family: 'OPPOSans', sans-serif;
+      font-size: clamp(32px, 4.5vw, 48px);
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 12px;
+    }
+    .solutions-banner .subtitle {
+      font-family: 'OPPOSans', sans-serif;
+      font-size: 18px;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .solutions-banner .breadcrumb {
+      font-size: 13px;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 24px;
+    }
+    .solutions-banner .breadcrumb a {
+      color: rgba(255,255,255,0.6);
+    }
+
+    /* Overview section */
+    .solutions-overview {
+      padding: 72px 0;
+      text-align: center;
+    }
+    .solutions-overview .section-header h2 {
+      font-family: 'OPPOSans', sans-serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: #0A0A0A;
+      margin-bottom: 16px;
+    }
+    .solutions-overview .section-header p {
+      font-family: 'OPPOSans', sans-serif;
+      font-size: 16px;
+      color: rgba(0,0,0,0.75);
+      max-width: 720px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    /* Solution category cards */
+    .solution-category-list {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+    .solution-category-card {
+      display: flex;
+      align-items: stretch;
+      background: #fff;
+      border-radius: 16px;
+      border: 2px solid #E5E7EB;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    .solution-category-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    }
+    .solution-category-card.active {
+      border-color: #3D7BF2;
+    }
+    .solution-category-card .card-image {
+      width: 180px;
+      min-height: 160px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .solution-category-card.active .card-image {
+      background: linear-gradient(180deg, rgba(86,133,255,1) 0%, rgba(71,123,255,0) 100%);
+    }
+    .solution-category-card:not(.active) .card-image {
+      background: linear-gradient(180deg, rgba(200,210,230,0.6) 0%, rgba(200,210,230,0) 100%);
+    }
+    .solution-category-card .card-image .icon-wrapper {
+      width: 64px;
+      height: 64px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+    }
+    .solution-category-card .card-content {
+      flex: 1;
+      padding: 28px 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .solution-category-card .card-content h3 {
+      font-family: 'OPPOSans', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: #0A0A0A;
+      margin-bottom: 12px;
+    }
+    .solution-category-card .card-content p {
+      font-family: 'OPPOSans', sans-serif;
+      font-size: 14px;
+      color: rgba(0,0,0,0.65);
+      line-height: 1.8;
+    }
+
+    /* CTA buttons */
+    .solutions-cta {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 56px 0 80px;
+      flex-wrap: wrap;
+    }
+    .solutions-cta .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 32px;
+      border-radius: 100px;
+      font-family: 'OPPOSans', sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+    .solutions-cta .btn-consult {
+      background: transparent;
+      color: #3D7BF2;
+      border: 1.5px solid #3D7BF2;
+    }
+    .solutions-cta .btn-consult:hover {
+      background: rgba(61,123,242,0.06);
+      color: #3D7BF2;
+    }
+    .solutions-cta .btn-apply {
+      background: #3D7BF2;
+      color: #fff;
+      border: 1.5px solid #3D7BF2;
+    }
+    .solutions-cta .btn-apply:hover {
+      background: #2D6AE0;
+      border-color: #2D6AE0;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 15px rgba(61,123,242,0.35);
+    }
+    .solutions-cta .btn .arrow {
+      font-size: 16px;
+      transition: transform 0.3s ease;
+    }
+    .solutions-cta .btn:hover .arrow {
+      transform: translateX(3px);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .solution-category-card {
+        flex-direction: column;
+      }
+      .solution-category-card .card-image {
+        width: 100%;
+        min-height: 120px;
+      }
+      .solutions-banner {
+        text-align: center;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -14,218 +216,84 @@
   <div class="container">
     <a href="index.html" class="logo"><div class="logo-icon">S</div>智成<span>时空</span></a>
     <nav class="nav">
-      <a href="index.html" >首页</a>
-      <a href="products.html" >产品中心</a>
-      <a href="solutions.html" class="active" >解决方案</a>
-      <a href="team.html" >人才团队</a>
-      <a href="partners.html" >市场合作</a>
-      <a href="service.html" >服务中心</a>
-      <a href="about.html" >关于智成</a>
+      <a href="index.html">首页</a>
+      <a href="products.html">产品中心</a>
+      <a href="solutions.html" class="active">解决方案</a>
+      <a href="team.html">人才团队</a>
+      <a href="partners.html">市场合作</a>
+      <a href="service.html">服务中心</a>
+      <a href="about.html">关于智成</a>
     </nav>
     <button class="mobile-toggle" aria-label="菜单"><span></span><span></span><span></span></button>
   </div>
 </header>
 
-<section class="page-banner">
+<!-- Banner -->
+<section class="solutions-banner">
   <div class="container">
     <div class="breadcrumb"><a href="index.html">首页</a> / 解决方案</div>
-    <h1>行业解决方案</h1>
-    <p>赋能水利、交通、自然资源等十余个行业数字化转型发展</p>
+    <h1>时空智能领域解决方案</h1>
+    <p class="subtitle">Spatiotemporal intelligence solution</p>
   </div>
 </section>
 
-<!-- Surveying & Natural Resources -->
-<section class="section">
+<!-- Overview -->
+<section class="solutions-overview">
   <div class="container">
     <div class="section-header">
-      <h2>测绘地理信息</h2>
-      <p>时空智能产品深度应用于测绘地理信息领域</p>
+      <h2>解决方案</h2>
+      <p>以全量源代码自主可控技术体系为驱动，以时空智能领域全行业需求为导向，为用户提供时空智能领域专业性解决方案</p>
       <div class="line"></div>
-    </div>
-    <div class="solution-grid">
-      <div class="solution-card">
-        <div class="banner" style="background:linear-gradient(135deg,#0052D9,#0078FF)">🗃️</div>
-        <div class="content">
-          <h3>实景三维数据建库管理系统</h3>
-          <p>以影像、地形、倾斜、LOD、点云、实体等六大类测绘数据为核心的"入库、处理、质检、管理、可视化分析"全流程系统。</p>
-          <div class="cases">🏆 荣获2024年地理信息科技进步奖一等奖<br>📍 山西省测绘地理信息院、江苏省测绘工程院</div>
-        </div>
-      </div>
-      <div class="solution-card">
-        <div class="banner" style="background:linear-gradient(135deg,#0096B7,#00B4D8)">🗺️</div>
-        <div class="content">
-          <h3>实景三维一张图系统</h3>
-          <p>实现地形级、城市级、部件级实景三维数据及全景、街景、照片与视频等多源数据一体化展示与服务能力。</p>
-          <div class="cases">📍 自然资源部国家基础地理信息中心<br>📍 青海省省级自然资源大数据中心</div>
-        </div>
-      </div>
-      <div class="solution-card">
-        <div class="banner" style="background:linear-gradient(135deg,#2E7D32,#4CAF50)">🏗️</div>
-        <div class="content">
-          <h3>湖仓一体化数据管理平台</h3>
-          <p>贯通项目生产汇交与全量资产管理体系，形成统一汇聚入库、规范化处理、时序化管理及服务化输出的全流程管控能力。</p>
-          <div class="cases">📍 部级：自然资源第一地形测量队<br>📍 省级：山西省、青海省 · 市级：张掖市</div>
-        </div>
-      </div>
     </div>
   </div>
 </section>
 
-<!-- Natural Resources -->
-<section class="section section-dark">
+<!-- Solution Category Cards -->
+<section class="section" style="padding-top:0;">
   <div class="container">
-    <div class="section-header">
-      <h2>自然资源</h2>
-      <p>时空智能产品应用于自然资源领域</p>
-      <div class="line"></div>
-    </div>
-    <div class="solution-grid">
-      <div class="solution-card">
-        <div class="banner" style="background:linear-gradient(135deg,#1565C0,#42A5F5)">📊</div>
-        <div class="content">
-          <h3>"一张图"数据库管理系统</h3>
-          <p>构建"物理分散、逻辑一体、互联互通"的分布式数据库群体系，实现跨层级、跨业务一体化调度与智能化分析。构建"1+3+32"分布式数据库群体系。</p>
-          <div class="cases">📍 典型案例："一张图"国家主库建设</div>
+    <div class="solution-category-list">
+
+      <!-- 测绘地理信息领域 -->
+      <div class="solution-category-card active">
+        <div class="card-image">
+          <div class="icon-wrapper">🗺️</div>
+        </div>
+        <div class="card-content">
+          <h3>测绘地理信息领域</h3>
+          <p>聚焦测绘地理信息领域项目生产汇交与全量资产管理体系，推动测绘地理信息数据管理由传统分散模式向一体化、云端化、服务化方向转型升级。</p>
         </div>
       </div>
-      <div class="solution-card">
-        <div class="banner" style="background:linear-gradient(135deg,#00695C,#26A69A)">🛰️</div>
-        <div class="content">
-          <h3>"一张图"遥感影像统筹共享系统</h3>
-          <p>集影像汇聚入库、检索查询、时序管理、分发下载与服务发布等功能于一体，全面提升影像资源利用效率。</p>
-          <div class="cases">📍 国家级：自然资源部国家基础地理信息中心<br>📍 省级：山西省测绘地理信息中心</div>
+
+      <!-- 自然资源数字化治理 -->
+      <div class="solution-category-card">
+        <div class="card-image">
+          <div class="icon-wrapper">🌍</div>
+        </div>
+        <div class="card-content">
+          <h3>自然资源数字化治理</h3>
+          <p>依托"一张图"与自然资源三维立体时空数据库，筑牢时空数据底座，推动自然资源管理数字化与高质量发展。</p>
         </div>
       </div>
-      <div class="solution-card">
-        <div class="banner" style="background:linear-gradient(135deg,#4527A0,#7E57C2)">🌐</div>
-        <div class="content">
-          <h3>自然资源三维立体时空数据库</h3>
-          <p>海量多元、多尺度、多时相数据的三维立体整合，实现多尺度DEM数据融合、PB级多时相影像动态调度。</p>
-          <div class="cases">📍 自然资源部国家基础地理信息中心</div>
+
+      <!-- 行业数字化转型 -->
+      <div class="solution-category-card">
+        <div class="card-image">
+          <div class="icon-wrapper">⚡</div>
+        </div>
+        <div class="card-content">
+          <h3>行业数字化转型</h3>
+          <p>构建以时空数据为核心的行业数字化应用体系，全面推动各行业领域的智能化转型升级。</p>
         </div>
       </div>
+
     </div>
   </div>
 </section>
 
-<!-- Smart City -->
-<section class="section">
-  <div class="container">
-    <div class="section-header">
-      <h2>智慧城市</h2>
-      <p>时空智能产品应用于智慧城市时空底座建设</p>
-      <div class="line"></div>
-    </div>
-    <div class="solution-grid">
-      <div class="solution-card">
-        <div class="banner" style="background:linear-gradient(135deg,#0052D9,#00B4D8)">🏙️</div>
-        <div class="content">
-          <h3>智慧城市时空大数据平台</h3>
-          <p>汇聚城市多源、多尺度、多部门的数据要素，构建高质量、可追溯的时空数据集，实现跨部门数据的可信流通与按需调用。</p>
-          <div class="cases">📍 白银市、黄陵县、西咸新区</div>
-        </div>
-      </div>
-      <div class="solution-card">
-        <div class="banner" style="background:linear-gradient(135deg,#283593,#5C6BC0)">🏛️</div>
-        <div class="content">
-          <h3>市域社会治理</h3>
-          <p>以市域三维空间地理信息为基底，集事件处置、数据分析研判预警、公共安全视频监控联网应用于一体的综合性平台。</p>
-          <div class="cases">🏆 神木市：2023社会治理创新优秀城市<br>🏆 榆林市：全国社会治理现代化试点合格城市</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Industry Solutions -->
-<section class="section section-dark">
-  <div class="container">
-    <div class="section-header">
-      <h2>行业应用</h2>
-      <p>时空智能产品赋能多个行业领域</p>
-      <div class="line"></div>
-    </div>
-    <div class="solution-grid">
-      <div class="solution-card">
-        <div class="banner" style="background:linear-gradient(135deg,#00796B,#26A69A)">💧</div>
-        <div class="content">
-          <h3>水利时空数字孪生平台</h3>
-          <p>以自主可控的数字孪生基础平台为支撑，打造实景三维数字孪生水利解决方案，为"2+N"水利业务应用场景提供助力。</p>
-          <div class="cases">📍 宁夏水利一张图、塔里木河流域喀什管理局、黄河流域、渭河生态区</div>
-        </div>
-      </div>
-      <div class="solution-card">
-        <div class="banner" style="background:linear-gradient(135deg,#1565C0,#64B5F6)">🚗</div>
-        <div class="content">
-          <h3>交通时空数字孪生平台</h3>
-          <p>面向多维交通场景与全要素交通实体，构建交通时空数字孪生平台，全面提升规划、建设、养护、运营等业务的智能化水平。</p>
-          <div class="cases">📍 陕西省交通基础设施数据服务中台</div>
-        </div>
-      </div>
-      <div class="solution-card">
-        <div class="banner" style="background:linear-gradient(135deg,#37474F,#78909C)">⛏️</div>
-        <div class="content">
-          <h3>透明地质保障系统</h3>
-          <p>深度融合多源地质数据、实时监测数据与地质保障业务流程，为煤矿开采全过程提供安全、智能、可视的地质保障能力。</p>
-          <div class="cases">📍 陕西：大佛寺 · 新疆：大南湖、准东二矿<br>📍 内蒙：老石旦、黄白茨等10+矿区</div>
-        </div>
-      </div>
-      <div class="solution-card">
-        <div class="banner" style="background:linear-gradient(135deg,#E65100,#FF9800)">⚡</div>
-        <div class="content">
-          <h3>智慧能源</h3>
-          <p>融合地理信息、北斗定位与生产业务数据，形成覆盖生产、运输、作业全过程的"一张图"管理体系。</p>
-          <div class="cases">📍 黄陵县煤炭运输行业时空数字化平台<br>📍 数字油田北斗时空数据管理系统</div>
-        </div>
-      </div>
-      <div class="solution-card">
-        <div class="banner" style="background:linear-gradient(135deg,#2E7D32,#66BB6A)">🌾</div>
-        <div class="content">
-          <h3>智慧农业</h3>
-          <p>构建"数据治理、模型驱动、图上表达、场景应用"的闭环体系，全面提升农业生产精细化与智能化水平。</p>
-          <div class="cases">📍 陕西省智慧农业平台、中堰村智慧农业现代化管理平台</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Cooperation Models -->
-<section class="section">
-  <div class="container">
-    <div class="section-header">
-      <h2>合作模式</h2>
-      <p>按需构筑灵活便捷的多维度合作模式</p>
-      <div class="line"></div>
-    </div>
-    <div class="card-grid">
-      <div class="card">
-        <div class="card-icon blue">📦</div>
-        <h3>项目交付</h3>
-        <p>专业规范的项目交付能力赋能用户高效交付，通过全过程内控管理、阶段性项目评审及标准化文档体系保障质量。</p>
-      </div>
-      <div class="card">
-        <div class="card-icon cyan">🔄</div>
-        <h3>产品赋能</h3>
-        <p>时空数据智能中台产品赋能用户盘活数据资产创造数据价值，贯通数据汇-治-管-供全流程。</p>
-      </div>
-      <div class="card">
-        <div class="card-icon purple">🤝</div>
-        <h3>联合研发</h3>
-        <p>全量源码底层核心技术联合客户行业专家能力共创跨领域创新产品，推动成果沉淀与应用推广。</p>
-      </div>
-      <div class="card">
-        <div class="card-icon green">👥</div>
-        <h3>团队赋能</h3>
-        <p>成熟的企业管理实践经验赋能用户搭建自主高效的数字化转型研发团队。</p>
-      </div>
-      <div class="card">
-        <div class="card-icon orange">💰</div>
-        <h3>资本合作</h3>
-        <p>资本层面互信股改，强强联合，优势互补打造领域独角兽企业。</p>
-      </div>
-    </div>
-  </div>
+<!-- CTA Buttons -->
+<section class="solutions-cta">
+  <a href="service.html" class="btn btn-consult">合作咨询 <span class="arrow">→</span></a>
+  <a href="products.html" class="btn btn-apply">申请试用 <span class="arrow">→</span></a>
 </section>
 
 <footer class="footer">
