@@ -1,0 +1,42 @@
+# 在目标仓库（TARGET Repo）中: .github/workflows/sync.yml
+
+name: Sync from Source Repo
+
+# 核心改动：将触发条件从 schedule 改为 repository_dispatch
+on:
+  repository_dispatch:
+    types: [sync-from-source]     # 这个 types 必须与源仓库中定义的 event-type 完全一致
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      # 按照你之前设计的同步逻辑，复制源仓库的指定文件
+      # 下面是示例，请根据你的需求替换
+      - name: Checkout target repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.ACCESS_TOKEN }}
+
+      - name: Checkout source repo
+        uses: actions/checkout@v4
+        with:
+          repository: liu10332/zhicheng-state-state
+          path: workspace/website
+          token: ${{ secrets.ACCESS_TOKEN }}
+
+      # ... 按照你的需求编写复制文件的命令...
+      - name: Copy files from source
+        run: |
+          # 示例：复制源仓库的 src/ 文件夹 到 目标仓库的 copied/ 文件夹
+          rm -rf website                # 清空目标位置旧内容（可选）
+          mkdir -p website
+          cp -r workspace/website/* website/
+          
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "auto sync from source repo (triggered by repository_dispatch)" || true
+          git push
