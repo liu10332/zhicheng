@@ -31,7 +31,8 @@ jobs:
         run: |
           # 示例：复制源仓库的 src/ 文件夹 到 目标仓库的 copied/ 文件夹
           rm -rf website                # 清空目标位置旧内容（可选）
-          rm -rf docs
+          rm -rf *.html
+          rm -rf assets
           mkdir -p docs
           cp -r tmp/workspace/website/* docs/
           
