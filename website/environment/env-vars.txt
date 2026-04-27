@@ -1,6 +1,0 @@
-# 关键环境变量快照
-# 生成时间: 2026-04-27T23:51:54+08:00
-PATH=/usr/bin:/usr/local/bin:/root/.local/bin:/bin:/root/.npm-global/bin:/root/bin:/root/.volta/bin:/root/.asdf/shims:/root/.bun/bin:/root/.nvm/current/bin:/root/.fnm/current/bin:/root/.local/share/pnpm
-LANG=en_US.UTF-8
-HOME=/root
-SHELL=/usr/bin/bash
