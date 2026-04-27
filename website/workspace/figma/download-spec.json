@@ -1,0 +1,116 @@
+{
+  "fileKey": "vl3nMMuTDfcUH7f8CpgTa9",
+  "nodes": [
+    {
+      "nodeId": "80:244",
+      "fileName": "80-244_image_12.png",
+      "imageRef": "2bc0f69c7378eaff63c248330d27aeeb234aa86d"
+    },
+    {
+      "nodeId": "80:949",
+      "fileName": "80-949_image_13.png",
+      "imageRef": "472dc73c63f086a21fe24631b4a414e5da898f6c"
+    },
+    {
+      "nodeId": "141:453",
+      "fileName": "141-453_image_26.png",
+      "imageRef": "59547d704cef7ecf9f6961e125d5410801848780"
+    },
+    {
+      "nodeId": "193:2166",
+      "fileName": "193-2166_\u6444\u56fe\u7f51_500295648_\u4f01\u4e1a\u6587\u5316(\u975e\u4f01\u4e1a\u5546\u7528)_1.png",
+      "imageRef": "548093beed8b339fba77b187a12306d90622ccd2"
+    },
+    {
+      "nodeId": "84:1650",
+      "fileName": "84-1650_image_11.png",
+      "imageRef": "0b5a5c1b68cbcc31ef67b248d29142a1c39506f7"
+    },
+    {
+      "nodeId": "80:1190",
+      "fileName": "80-1190_Rectangle_4159.png",
+      "imageRef": "40fc45b0ff332559e56943e5648db66838ce1bce"
+    },
+    {
+      "nodeId": "84:1659",
+      "fileName": "84-1659_image_13.png",
+      "imageRef": "a5873c2253f16b2a60b87d4ba0625bb1d0eae050"
+    },
+    {
+      "nodeId": "84:1470",
+      "fileName": "84-1470_image_19.png",
+      "imageRef": "6d9d7edcc4bda1f7bcce6c25d5b65239d107f27a"
+    },
+    {
+      "nodeId": "84:2233",
+      "fileName": "84-2233_Rectangle_4160.png",
+      "imageRef": "91db9dc1848480695934781da27c1abea32d69f2"
+    },
+    {
+      "nodeId": "84:1662",
+      "fileName": "84-1662_image_13.png",
+      "imageRef": "8f898917cba89b2e29bed03926ce836603342f8a"
+    },
+    {
+      "nodeId": "84:1473",
+      "fileName": "84-1473_image_16.png",
+      "imageRef": "b450da341ddd0f5b93f10dccfb6797b72d1d7abf"
+    },
+    {
+      "nodeId": "84:1668",
+      "fileName": "84-1668_image_17.png",
+      "imageRef": "4bece634e5d35d46975203a4e1bd7c222ff11385"
+    },
+    {
+      "nodeId": "84:1671",
+      "fileName": "84-1671_image_18.png",
+      "imageRef": "e7d5b655fe1db294f0b9c912bea09147f85c8144"
+    },
+    {
+      "nodeId": "84:1674",
+      "fileName": "84-1674_Frame_56.png",
+      "imageRef": "0c6e7ad2343447f72406dc0166321a377b407581"
+    },
+    {
+      "nodeId": "97:267",
+      "fileName": "97-267_image_13.png",
+      "imageRef": "126458bbfd2b3fec5d7b1d95b09ca4bfa64332e7"
+    },
+    {
+      "nodeId": "97:269",
+      "fileName": "97-269_image_17.png",
+      "imageRef": "779eff89fb98d6254b9eaa07f1db7e017e79cf24"
+    },
+    {
+      "nodeId": "98:590",
+      "fileName": "98-590_image_18.png",
+      "imageRef": "8b7bc2d1d2e9f374970149a3b633146394ec700e"
+    },
+    {
+      "nodeId": "97:271",
+      "fileName": "97-271_\u667a\u6210\u65f6\u7a7a\u6210\u7acb\u81f3\u4eca\uff0c\u79c9\u6301\u81ea\u9a71\u521b\u65b0\u805a\u529b\u7406\u5ff5\uff0c\u5df2\u7ec4\u5efa\u4e86\u5177\u6709_\u6df1\u539a\u884c\u4e1a\u6c89\u6dc0\u7684\u7cbe\u82f1\u4eba\u624d\u56e2\u961f.png",
+      "imageRef": "97ce4aab75cb544a51577530cc3dee78811b2237"
+    },
+    {
+      "nodeId": "98:895",
+      "fileName": "98-895_image_13.png",
+      "imageRef": "eb1cb1dbb4941c6ccb07e5390327aadf1fb5f92d"
+    },
+    {
+      "nodeId": "106:1258",
+      "fileName": "106-1258_Rectangle_4163.png",
+      "imageRef": "204ffabd97be46622de4e3266daa74bfa1d905ae"
+    },
+    {
+      "nodeId": "106:1281",
+      "fileName": "106-1281_Rectangle_4163.png",
+      "imageRef": "76a915846398ff851b3c280cb0682d83f9966f56"
+    },
+    {
+      "nodeId": "106:1300",
+      "fileName": "106-1300_Rectangle_4163.png",
+      "imageRef": "e7f2fe0ea6e892c4bde0c084228b92be1aa663e7"
+    }
+  ],
+  "localPath": "../website/assets/img/figma"
+}

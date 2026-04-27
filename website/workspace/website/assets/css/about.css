@@ -1,0 +1,443 @@
+/* ============================================
+   About Page - 关于智成
+   ============================================ */
+
+/* ---- Company Intro ---- */
+.about-company {
+  background: #121212;
+  padding: 64px 0;
+  color: #fff;
+}
+.about-company .container {
+  max-width: 1400px;
+  padding: 0 240px;
+}
+.about-company-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.about-company-title {
+  font-family: 'OPPOSans', 'Inter', -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 24px;
+}
+.about-company-content p {
+  font-size: 15px;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.9;
+  margin-bottom: 16px;
+}
+.about-company-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.globe-decoration {
+  width: 100%;
+  max-width: 400px;
+  animation: globeSpin 30s linear infinite;
+}
+.globe-decoration svg {
+  width: 100%;
+  height: auto;
+}
+@keyframes globeSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ---- Development History ---- */
+.about-history {
+  padding: 80px 0;
+  background: #fff;
+}
+.about-history .section-header h2 {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 12px;
+}
+.about-history .section-header p {
+  font-size: 16px;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+}
+.timeline-horizontal {
+  position: relative;
+  padding: 60px 0 20px;
+  overflow-x: auto;
+}
+.timeline-track {
+  position: absolute;
+  top: 80px;
+  left: 5%;
+  right: 5%;
+  height: 3px;
+  background: #014FB1;
+  border-radius: 2px;
+}
+.timeline-nodes {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  min-width: 800px;
+  padding: 0 5%;
+}
+.timeline-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 22%;
+  position: relative;
+}
+.timeline-dot {
+  width: 16px;
+  height: 16px;
+  background: #014FB1;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  box-shadow: 0 0 0 3px #014FB1;
+  position: relative;
+  z-index: 2;
+  margin-bottom: 16px;
+}
+.timeline-year {
+  font-size: 20px;
+  font-weight: 700;
+  color: #014FB1;
+  margin-bottom: 16px;
+  text-align: center;
+}
+.timeline-card {
+  background: #F7F9FC;
+  border-radius: 12px;
+  padding: 24px;
+  border: 1px solid #E5E7EB;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+.timeline-card:hover {
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  transform: translateY(-4px);
+}
+.timeline-card-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--dark);
+  margin-bottom: 8px;
+}
+.timeline-card-subtitle {
+  font-size: 14px;
+  color: #014FB1;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+.timeline-card p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+.timeline-card ul {
+  list-style: none;
+  padding: 0;
+}
+.timeline-card ul li {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  padding-left: 16px;
+  position: relative;
+  margin-bottom: 6px;
+}
+.timeline-card ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #014FB1;
+}
+
+/* ---- Culture ---- */
+.about-culture {
+  padding: 80px 0;
+  background: var(--bg-light);
+}
+.about-culture .section-header h2 {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 12px;
+}
+.about-culture .section-header p {
+  font-size: 16px;
+  color: var(--text-secondary);
+}
+.culture-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+.culture-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 32px 24px;
+  text-align: center;
+  border: 1px solid #E5E7EB;
+  transition: all 0.3s ease;
+}
+.culture-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+}
+.culture-card-wide {
+  grid-column: span 2;
+}
+.culture-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0052D9, #00B4D8);
+  color: #fff;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+.culture-card h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--dark);
+  margin-bottom: 10px;
+}
+.culture-card p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* ---- Honors ---- */
+.about-honors {
+  padding: 80px 0;
+  background: #fff;
+}
+.about-honors .section-header h2 {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 12px;
+}
+.about-honors .section-header p {
+  font-size: 16px;
+  color: var(--text-secondary);
+  max-width: 700px;
+  margin: 0 auto;
+}
+.honors-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 40px 0 32px;
+}
+.honors-tab {
+  padding: 10px 28px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid #E5E7EB;
+  background: #fff;
+  color: var(--text-secondary);
+}
+.honors-tab.active,
+.honors-tab:hover {
+  background: var(--primary-light);
+  color: var(--primary);
+  border-color: var(--primary);
+}
+.honors-panel {
+  display: none;
+}
+.honors-panel.active {
+  display: block;
+}
+.honors-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.honors-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.honor-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 16px;
+  color: var(--dark);
+  padding: 12px 0;
+  border-bottom: 1px solid #F0F0F0;
+}
+.honor-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #014FB1;
+  flex-shrink: 0;
+}
+.honors-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cert-display {
+  background: linear-gradient(135deg, #F7F9FC, #E8F1FF);
+  border-radius: 16px;
+  padding: 60px;
+  text-align: center;
+  width: 100%;
+}
+.cert-icon {
+  font-size: 72px;
+  margin-bottom: 16px;
+}
+.cert-display p {
+  font-size: 16px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* ---- Contact ---- */
+.about-contact {
+  padding: 80px 0;
+  background: #121212;
+  color: #fff;
+}
+.about-contact-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+.about-contact-header h2 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 12px;
+}
+.about-contact-header p {
+  font-size: 16px;
+  color: rgba(255,255,255,0.6);
+}
+.about-contact-header a {
+  color: #00B4D8;
+}
+.about-contact-header a:hover {
+  color: #00D4F8;
+}
+.contact-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.contact-card {
+  background: rgba(255,255,255,0.06);
+  border-radius: 16px;
+  padding: 32px 24px;
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: all 0.3s ease;
+}
+.contact-card:hover {
+  background: rgba(255,255,255,0.1);
+  transform: translateY(-4px);
+}
+.contact-card-icon {
+  font-size: 32px;
+  margin-bottom: 16px;
+}
+.contact-card h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 12px;
+}
+.contact-card p {
+  font-size: 14px;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.7;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 992px) {
+  .about-company .container {
+    padding: 0 40px;
+  }
+  .about-company-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .about-company-visual {
+    order: -1;
+  }
+  .globe-decoration {
+    max-width: 280px;
+  }
+  .honors-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .culture-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+  .culture-card-wide {
+    grid-column: span 2;
+  }
+  .contact-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+  .timeline-nodes {
+    min-width: 700px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-company .container {
+    padding: 0 24px;
+  }
+  .about-company-title {
+    font-size: 26px;
+  }
+  .culture-cards {
+    grid-template-columns: 1fr;
+  }
+  .culture-card-wide {
+    grid-column: span 1;
+  }
+  .contact-cards {
+    grid-template-columns: 1fr;
+  }
+  .honors-tabs {
+    flex-direction: column;
+    align-items: center;
+  }
+  .honors-tab {
+    width: 100%;
+    max-width: 280px;
+    text-align: center;
+  }
+  .timeline-horizontal {
+    padding-bottom: 20px;
+  }
+}

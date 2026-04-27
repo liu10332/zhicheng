@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>产品中心 - 智成时空</title>
+  <meta name="description" content="智成时空时空智能产品体系：时空基础产品、时空数据智能中台、时空智能平台级产品，全量源码自主创新，安全自主可控架构。">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230052D9'/><text x='50%25' y='55%25' text-anchor='middle' dominant-baseline='middle' fill='white' font-size='18' font-weight='bold'>S</text></svg>">
+  <style>
+    /* 产品中心页面专用样式 */
+    .page-banner {
+      position: relative;
+      overflow: hidden;
+    }
+    .page-banner .banner-bg {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(135deg, #010A37 0%, #0D2137 50%, #1A2A3A 100%);
+      z-index: 0;
+    }
+    .page-banner .banner-bg::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 800px; height: 800px;
+      background: radial-gradient(circle, rgba(61,123,242,0.15) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .page-banner .container {
+      position: relative; z-index: 1;
+      padding-top: calc(var(--header-height) + 80px);
+      padding-bottom: 80px;
+      text-align: center;
+    }
+    .page-banner h1 {
+      font-size: 56px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+    .page-banner .banner-subtitle {
+      font-size: 22px;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 0.1em;
+      margin-bottom: 0;
+    }
+    .page-banner .breadcrumb {
+      font-size: 13px;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 32px;
+    }
+    .page-banner .breadcrumb a {
+      color: rgba(255,255,255,0.6);
+    }
+
+    /* 产品体系概述 */
+    .product-overview {
+      padding: 64px 0;
+      background: #fff;
+    }
+    .product-overview .container {
+      max-width: 960px;
+      text-align: center;
+    }
+    .product-overview h2 {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 24px;
+    }
+    .product-overview p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: rgba(0,0,0,0.85);
+    }
+
+    /* 产品分类板块 */
+    .product-category {
+      padding: 56px 0 64px;
+      border-bottom: 1px solid rgba(62,71,87,0.1);
+    }
+    .product-category:last-child {
+      border-bottom: none;
+    }
+    .product-category .container {
+      max-width: 1200px;
+    }
+    .product-category-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .product-category-header h3 {
+      font-size: 26px;
+      font-weight: 700;
+      color: #000;
+      margin-bottom: 10px;
+    }
+    .product-category-header p {
+      font-size: 14px;
+      color: rgba(0,0,0,0.75);
+    }
+
+    /* 产品列表 */
+    .product-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .product-list.cols-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .product-item {
+      background: #fff;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(62,71,87,0.15);
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: var(--transition);
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+    }
+    .product-item:hover {
+      border-color: var(--primary);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+      transform: translateY(-2px);
+    }
+    .product-item .item-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+      margin-right: 16px;
+    }
+    .product-item .item-icon.blue { background: var(--primary-light); color: var(--primary); }
+    .product-item .item-icon.cyan { background: #E0F7FA; color: var(--accent); }
+    .product-item .item-icon.purple { background: #F3E8FF; color: #7C3AED; }
+    .product-item .item-icon.green { background: #E8F5E9; color: #2E7D32; }
+    .product-item .item-icon.orange { background: #FFF3E0; color: #E65100; }
+    .product-item .item-icon.indigo { background: #E8EAF6; color: #3949AB; }
+    .product-item-info {
+      flex: 1;
+    }
+    .product-item-info h4 {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--dark);
+      margin-bottom: 4px;
+    }
+    .product-item-info .item-desc {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+    .product-item .arrow {
+      color: var(--text-light);
+      font-size: 18px;
+      flex-shrink: 0;
+      margin-left: 12px;
+      transition: var(--transition);
+    }
+    .product-item:hover .arrow {
+      color: var(--primary);
+      transform: translateX(4px);
+    }
+
+    /* 响应式 */
+    @media (max-width: 992px) {
+      .product-list {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .product-list.cols-2 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 768px) {
+      .page-banner h1 {
+        font-size: 36px;
+      }
+      .page-banner .banner-subtitle {
+        font-size: 18px;
+      }
+      .product-list,
+      .product-list.cols-2 {
+        grid-template-columns: 1fr;
+      }
+      .product-category-header h3 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <div class="container">
+    <a href="index.html" class="logo"><div class="logo-icon">S</div>智成<span>时空</span></a>
+    <nav class="nav">
+      <a href="index.html">首页</a>
+      <a href="products.html" class="active">产品中心</a>
+      <a href="solutions.html">解决方案</a>
+      <a href="team.html">人才团队</a>
+      <a href="partners.html">市场合作</a>
+      <a href="service.html">服务中心</a>
+      <a href="about.html">关于智成</a>
+    </nav>
+    <button class="mobile-toggle" aria-label="菜单"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- Banner 区域 -->
+<section class="page-banner">
+  <div class="banner-bg"></div>
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">首页</a> / 产品中心</div>
+    <h1>产品中心</h1>
+    <p class="banner-subtitle">product center</p>
+  </div>
+</section>
+
+<!-- 产品体系概述 -->
+<section class="product-overview">
+  <div class="container">
+    <h2>产品体系概述</h2>
+    <p>智成时空围绕时空数据治理与智能化应用，构建了"基础产品 + 智能中台 + 平台级产品"三位一体的时空智能产品体系。全量源码自主创新，安全自主可控架构，全面适配信创环境，面向政府、央国企及行业客户提供一站式时空数据能力底座。</p>
+  </div>
+</section>
+
+<!-- 时空基础产品 -->
+<section class="product-category">
+  <div class="container">
+    <div class="product-category-header">
+      <h3>时空基础产品</h3>
+      <p>基于全源兼容、AI驱动、信创适配的核心能力</p>
+    </div>
+    <div class="product-list cols-2">
+      <a href="products.html" class="product-item">
+        <div class="item-icon blue">🖥️</div>
+        <div class="product-item-info">
+          <h4>时空数据智能处理软件</h4>
+          <p class="item-desc">SceneMap xDesktop · 面向全行业全时空数据的智能化处理</p>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+      <a href="products.html" class="product-item">
+        <div class="item-icon cyan">🌐</div>
+        <div class="product-item-info">
+          <h4>时空数据服务发布管理软件</h4>
+          <p class="item-desc">SceneMap xServer · 全底层自主研发、安全可靠的服务发布体系</p>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+      <a href="products.html" class="product-item">
+        <div class="item-icon purple">🗺️</div>
+        <div class="product-item-info">
+          <h4>时空智能三维网络端软件</h4>
+          <p class="item-desc">SceneMap xClient · 轻量化三维承载与全空间一体化应用</p>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 时空数据智能中台 -->
+<section class="product-category" style="background: var(--bg-light);">
+  <div class="container">
+    <div class="product-category-header">
+      <h3>时空数据智能中台</h3>
+      <p>面向政府、央国企及行业客户打造的一站式时空数据能力底座</p>
+    </div>
+    <div class="product-list">
+      <a href="products.html" class="product-item">
+        <div class="item-icon green">📥</div>
+        <div class="product-item-info">
+          <h4>时空数据汇集系统</h4>
+          <p class="item-desc">多源异构数据统一接入与高效汇聚</p>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+      <a href="products.html" class="product-item">
+        <div class="item-icon orange">⚙️</div>
+        <div class="product-item-info">
+          <h4>时空数据治理系统</h4>
+          <p class="item-desc">标准化 · 语义化 · 智能化数据治理</p>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+      <a href="products.html" class="product-item">
+        <div class="item-icon blue">📊</div>
+        <div class="product-item-info">
+          <h4>时空数据管理系统</h4>
+          <p class="item-desc">全生命周期一站式数据管理平台</p>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+      <a href="products.html" class="product-item">
+        <div class="item-icon cyan">🤖</div>
+        <div class="product-item-info">
+          <h4>时空数据应用系统</h4>
+          <p class="item-desc">让"人找数据"变成"数据找人"</p>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+      <a href="products.html" class="product-item">
+        <div class="item-icon indigo">🔒</div>
+        <div class="product-item-info">
+          <h4>安全管理系统</h4>
+          <p class="item-desc">数据传输 · 存储 · 备份 · 使用全过程安全保障</p>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+      <a href="products.html" class="product-item">
+        <div class="item-icon purple">🛡️</div>
+        <div class="product-item-info">
+          <h4>权限管理系统</h4>
+          <p class="item-desc">全维度精细化权限管控</p>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 时空智能平台级产品 -->
+<section class="product-category">
+  <div class="container">
+    <div class="product-category-header">
+      <h3>时空智能平台级产品</h3>
+      <p>基于全源兼容、AI驱动、信创适配的核心能力</p>
+    </div>
+    <div class="product-list cols-2">
+      <a href="products.html" class="product-item">
+        <div class="item-icon green">🏗️</div>
+        <div class="product-item-info">
+          <h4>湖仓一体化数据管理平台</h4>
+          <p class="item-desc">构建统一的数据资源管理与服务体系</p>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+      <a href="products.html" class="product-item">
+        <div class="item-icon blue">🏙️</div>
+        <div class="product-item-info">
+          <h4>智慧城市时空云平台</h4>
+          <p class="item-desc">面向智慧城市的时空信息云服务能力</p>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+      <a href="products.html" class="product-item">
+        <div class="item-icon cyan">🌍</div>
+        <div class="product-item-info">
+          <h4>时空数字孪生基础平台</h4>
+          <p class="item-desc">全空间一体化数字孪生底座</p>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div><h4>智成时空</h4><p>做用户最值得信赖的时空智能产品与技术服务商。</p></div>
+      <div><h4>产品中心</h4><ul><li><a href="products.html">基础产品</a></li><li><a href="products.html">智能中台</a></li><li><a href="products.html">平台级产品</a></li></ul></div>
+      <div><h4>解决方案</h4><ul><li><a href="solutions.html">自然资源</a></li><li><a href="solutions.html">数字孪生水利</a></li></ul></div>
+      <div><h4>联系我们</h4><ul><li>📞 18502908175</li><li>📍 西安市高新区</li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 智成时空(西安)创新科技有限公司</span><span>http://www.scenemap.com.cn</span></div>
+  </div>
+</footer>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
