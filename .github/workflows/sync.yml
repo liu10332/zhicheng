@@ -23,7 +23,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: liu10332/zhicheng-state-state
-          path: workspace/website
+          path: tmp
           token: ${{ secrets.ACCESS_TOKEN }}
 
       # ... 按照你的需求编写复制文件的命令...
@@ -32,7 +32,7 @@ jobs:
           # 示例：复制源仓库的 src/ 文件夹 到 目标仓库的 copied/ 文件夹
           rm -rf website                # 清空目标位置旧内容（可选）
           mkdir -p website
-          cp -r workspace/website/* website/
+          cp -r tmp/workspace/website/* website/
           
       - name: Commit and push changes
         run: |
