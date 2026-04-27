@@ -4,6 +4,7 @@ name: Sync from Source Repo
 
 # 核心改动：将触发条件从 schedule 改为 repository_dispatch
 on:
+  workflow_dispatch:
   repository_dispatch:
     types: [sync-from-source]     # 这个 types 必须与源仓库中定义的 event-type 完全一致
 
